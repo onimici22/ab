@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<!-- This site is hosted on Netlify. Anyone can build and deploy a site
+     like this one for free: https://netlify.new/?utm_campaign=loops&utm_source=ai-legible&utm_medium=owned&utm_content=comment&utm_id=eced52e5-33cc-44b9-a58e-b7251da2c2cc
+     Netlify hosting facts for this site: static/SSR served via Netlify Edge. -->
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="A guided growth experience for Shopify store owners." name="description"/>
+<title>Shopify Store Growth Program</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style>
+
+  :root{
+    --white: #ffffff;
+    --green-50: #f4faf6;
+    --green-100: #e6f4ec;
+    --green-150: #d9efe3;
+    --green-200: #c9e8da;
+    --green-300: #a9d8c3;
+    --green-500: #2ea37f;
+    --green-600: #008060;
+    --green-700: #006e52;
+    --green-800: #0b4a30;
+    --green-900: #04301f;
+
+    --ink: #1a1a1a;
+    --ink-2: #2c3e35;
+    --ink-3: #3f6f5b;
+    --ink-muted: #5c7272;
+    --red-500: #e74c3c;
+
+    --border: #e5e5e5;
+    --border-green: #d7ece1;
+
+    --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 14px;
+    --radius-xl: 20px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font);
+    background: var(--white);
+    color: var(--ink);
+    font-size: 14px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { text-decoration: none; color: inherit; }
+
+  /* HEADER */
+  .header {
+    background: var(--green-50);
+    border-bottom: 1px solid var(--border-green);
+    position: sticky; top: 0; z-index: 100;
+  }
+  .header-inner {
+    max-width: 1280px; margin: 0 auto; padding: 0 24px;
+    height: 64px; display: flex; align-items: center;
+  }
+  .brand { display: flex; align-items: center; gap: 12px; margin-right: 32px; }
+  .brand-name { font-size: 18px; font-weight: 700; color: #1a1a1a; letter-spacing: -0.3px; }
+  .brand-name span { font-weight: 500; color: #6b7280; }
+  .live-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 4px 10px; border-radius: 100px;
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;
+    color: var(--green-700); background: var(--green-100);
+    border: 1px solid var(--green-200); margin-left: 4px; white-space: nowrap;
+  }
+  .live-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green-600); animation: pulse 1.8s infinite; }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+  .nav-links { display: flex; align-items: center; gap: 24px; }
+  .nav-links a { display: flex; align-items: center; gap: 6px; font-size: 14.5px; font-weight: 500; color: var(--green-800); transition: color 0.15s; }
+  .nav-links a svg { opacity: 0.7; transition: opacity 0.15s; }
+  .nav-links a:hover { color: var(--green-600); }
+  .nav-links a:hover svg { opacity: 1; }
+
+  .header-right { margin-left: auto; display: flex; align-items: center; gap: 16px; }
+  .ask-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--green-100); border: 1px solid var(--green-200);
+    border-radius: var(--radius-sm); padding: 7px 14px;
+    font-size: 13.5px; font-weight: 600; color: var(--green-700); cursor: pointer; transition: 0.15s;
+  }
+  .ask-btn:hover { background: var(--green-150); }
+  .ask-btn .sparkle { font-size: 15px; }
+  .icon-btn { background: none; border: none; cursor: pointer; color: var(--green-800); display: flex; align-items: center; justify-content: center; padding: 4px; border-radius: var(--radius-sm); transition: 0.15s; }
+  .icon-btn:hover { background: var(--green-100); }
+  .header-right .text-link { font-size: 13.5px; font-weight: 500; color: var(--green-800); transition: color 0.15s; }
+  .header-right .text-link:hover { color: var(--green-600); }
+
+  /* MAIN */
+  .main { max-width: 1280px; margin: 0 auto; padding: 48px 24px 80px; }
+
+  /* HERO */
+  .hero {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;
+    margin-bottom: 80px; background: var(--green-50); border-radius: var(--radius-xl);
+    padding: 64px 56px; border: 1px solid var(--border-green);
+  }
+  .hero-content h1 { font-size: 42px; font-weight: 800; line-height: 1.15; letter-spacing: -1.2px; color: var(--ink); margin-bottom: 20px; }
+  .hero-content p { font-size: 16px; line-height: 1.7; color: var(--ink-3); max-width: 520px; margin-bottom: 32px; }
+  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--green-600); color: var(--white); border: none; border-radius: var(--radius-md);
+    padding: 12px 24px; font-family: var(--font); font-size: 14px; font-weight: 600; cursor: pointer; transition: 0.15s;
+  }
+  .btn-primary:hover { background: var(--green-700); transform: translateY(-1px); box-shadow: 0 6px 18px rgba(0,128,96,0.25); }
+  .btn-secondary {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--white); color: var(--green-800); border: 1px solid var(--green-300);
+    border-radius: var(--radius-md); padding: 12px 24px;
+    font-family: var(--font); font-size: 14px; font-weight: 600; cursor: pointer; transition: 0.15s;
+  }
+  .btn-secondary:hover { background: var(--green-50); border-color: var(--green-500); }
+
+  .hero-visual { display: flex; justify-content: center; align-items: center; }
+  .hero-visual svg { width: 100%; max-width: 480px; height: auto; }
+
+  /* SECTIONS */
+  .section-header { margin-bottom: 40px; }
+  .section-header .kicker { font-size: 12px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: var(--green-500); margin-bottom: 10px; }
+  .section-header h2 { font-size: 28px; font-weight: 800; letter-spacing: -0.6px; color: var(--ink); margin-bottom: 12px; }
+  .section-header p { font-size: 15px; color: var(--ink-3); max-width: 680px; line-height: 1.65; }
+
+  /* BENEFITS */
+  .benefits-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 72px; }
+  .benefit-card { display: flex; gap: 20px; background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; transition: 0.15s; }
+  .benefit-card:hover { border-color: var(--green-300); background: var(--green-50); transform: translateY(-2px); box-shadow: 0 10px 26px rgba(0,128,96,0.08); }
+  .benefit-icon { flex-shrink: 0; width: 44px; height: 44px; border-radius: var(--radius-md); background: var(--green-100); color: var(--green-600); display: flex; align-items: center; justify-content: center; }
+  .benefit-icon svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .benefit-content h3 { font-size: 15px; font-weight: 700; color: var(--ink); margin-bottom: 6px; letter-spacing: -0.2px; line-height: 1.35; }
+  .benefit-content p { font-size: 13.5px; color: var(--ink-3); line-height: 1.65; }
+  .benefit-tag { display: inline-block; margin-top: 12px; font-size: 10.5px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; color: var(--green-700); background: var(--green-100); border: 1px solid var(--green-200); padding: 3px 10px; border-radius: 100px; }
+
+  /* APPLY FORM */
+  .apply-section { background: var(--green-50); border: 1px solid var(--border-green); border-radius: var(--radius-xl); padding: 56px; margin-bottom: 80px; }
+  .apply-form { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 36px; }
+  .field { display: flex; flex-direction: column; gap: 8px; }
+  .field.full { grid-column: 1 / -1; }
+  .field label { font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--green-800); }
+  .field input { width: 100%; height: 48px; background: var(--white); border: 1px solid var(--green-200); border-radius: var(--radius-md); padding: 0 16px; font-family: var(--font); font-size: 14px; color: var(--ink); outline: none; transition: 0.15s; }
+  .field input::placeholder { color: var(--green-300); font-weight: 500; }
+  .field input:focus { border-color: var(--green-600); box-shadow: 0 0 0 3px var(--green-100); }
+  .field input.error { border-color: var(--red-500); box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1); }
+
+  .form-actions { margin-top: 32px; }
+  .btn-submit { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--green-600); color: var(--white); border: none; border-radius: var(--radius-md); padding: 14px 36px; font-family: var(--font); font-size: 15px; font-weight: 700; cursor: pointer; transition: 0.15s; }
+  .btn-submit:hover { background: var(--green-700); transform: translateY(-1px); box-shadow: 0 6px 18px rgba(0,128,96,0.25); }
+
+  .form-trust { display: flex; flex-wrap: wrap; gap: 24px; margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--border-green); }
+  .form-trust span { display: flex; align-items: center; gap: 8px; font-size: 12.5px; font-weight: 600; color: var(--green-700); }
+  .form-trust .tick { width: 18px; height: 18px; border-radius: 50%; background: var(--green-600); color: var(--white); display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 800; }
+
+  /* REVIEWS */
+  .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 80px; }
+  .review-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px; transition: 0.15s; }
+  .review-card:hover { border-color: var(--green-300); box-shadow: 0 10px 26px rgba(0,128,96,0.07); }
+  .stars { color: var(--green-600); font-size: 15px; letter-spacing: 2px; margin-bottom: 16px; }
+  .review-card blockquote { font-size: 14px; line-height: 1.7; color: var(--ink-3); margin-bottom: 24px; }
+  .review-card blockquote strong { color: var(--green-800); font-weight: 700; }
+  .review-author { display: flex; align-items: center; gap: 12px; }
+  .review-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--green-100); border: 1px solid var(--green-200); color: var(--green-700); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 800; flex-shrink: 0; }
+  .review-name { font-size: 14px; font-weight: 700; color: var(--ink); }
+  .review-role { font-size: 12px; color: var(--ink-muted); }
+
+  /* FOOTER */
+  .footer { background: var(--green-50); border-top: 1px solid var(--border-green); padding: 64px 24px; }
+  .footer-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; }
+  .footer-col h4 { font-size: 13px; font-weight: 700; color: var(--green-800); margin-bottom: 20px; letter-spacing: 0.2px; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .footer-col ul li a { font-size: 13.5px; color: var(--ink-2); font-weight: 400; transition: color 0.15s; }
+  .footer-col ul li a:hover { color: var(--green-600); }
+
+  @media (max-width: 1024px) {
+    .hero { grid-template-columns: 1fr; padding: 48px 32px; text-align: center; }
+    .hero-content h1 { font-size: 34px; }
+    .hero-content p { margin: 0 auto 32px; }
+    .hero-actions { justify-content: center; }
+    .hero-visual { display: none; }
+    .benefits-grid { grid-template-columns: 1fr; }
+    .reviews-grid { grid-template-columns: 1fr; }
+    .apply-form { grid-template-columns: 1fr; }
+    .footer-inner { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .header-right .text-link { display: none; }
+    .ask-btn span:not(.sparkle) { display: none; }
+    .apply-section { padding: 32px 24px; }
+    .footer-inner { grid-template-columns: 1fr; }
+  }
+
+  /* Added content sections and interactive theme */
+  .content-section { margin: 0 0 80px; scroll-margin-top: 88px; }
+  .content-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+  .content-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 25px; transition: .18s ease; }
+  .content-card:hover { border-color: var(--green-300); transform: translateY(-2px); box-shadow: 0 10px 26px rgba(0,128,96,.07); }
+  .content-label { display: inline-block; color: var(--green-700); background: var(--green-100); border: 1px solid var(--green-200); border-radius: 100px; padding: 4px 10px; font-size: 10px; font-weight: 700; letter-spacing: .5px; text-transform: uppercase; margin-bottom: 14px; }
+  .content-card h3 { font-size: 17px; line-height: 1.4; margin-bottom: 10px; color: var(--ink); }
+  .content-card p { color: var(--ink-3); font-size: 13.5px; line-height: 1.7; margin-bottom: 16px; }
+  .content-card a { color: var(--green-700); font-weight: 700; font-size: 13px; }
+  .content-card a:hover { text-decoration: underline; }
+  .content-disclaimer { color: var(--ink-muted); font-size: 12px; margin-top: 18px; }
+  .guide-dialog { width: min(760px, calc(100% - 32px)); max-height: 88vh; overflow-y: auto; border: 1px solid var(--border-green); border-radius: 18px; padding: 30px; color: var(--ink); background: var(--white); box-shadow: 0 24px 80px rgba(0,0,0,.2); }
+  .guide-dialog::backdrop { background: rgba(10,25,18,.58); backdrop-filter: blur(3px); }
+  .guide-dialog-head { display:flex; justify-content:space-between; gap:20px; align-items:flex-start; margin-bottom:18px; }
+  .guide-dialog h2 { font-size:25px; line-height:1.25; margin-top:5px; }
+  .dialog-close { border:0; background:var(--green-50); color:var(--ink); border-radius:50%; width:36px; height:36px; font-size:24px; cursor:pointer; flex-shrink:0; }
+  .guide-intro { color:var(--ink-3); line-height:1.7; margin-bottom:18px; }
+  .guide-steps { padding-left:22px; }
+  .guide-steps li { padding: 0 0 14px 6px; color:var(--ink); }
+  .guide-steps li strong { font-size:14px; }
+  .guide-steps li p { color:var(--ink-3); margin-top:4px; line-height:1.65; }
+  .guide-note { padding:13px 15px; background:var(--green-50); border:1px solid var(--border-green); border-radius:10px; color:var(--ink-muted); font-size:12px; line-height:1.6; margin:8px 0 20px; }
+  .guide-actions { display:flex; gap:12px; flex-wrap:wrap; }
+  body.dark { --white:#111a16; --green-50:#17251e; --green-100:#20372c; --green-150:#294637; --green-200:#345844; --green-300:#47745c; --green-500:#66c49b; --green-600:#36a879; --green-700:#65c99a; --green-800:#c1ead2; --green-900:#e2f7e9; --ink:#f0f5f1; --ink-2:#d0ddd4; --ink-3:#b3c9bb; --ink-muted:#9bb0a3; --border:#2b3b32; --border-green:#304d3d; color-scheme:dark; }
+  body.dark .header, body.dark .footer { background:var(--green-50); }
+  body.dark .content-card, body.dark .review-card { background:#152019; }
+  body.dark .guide-dialog { background:#111a16; }
+  body.dark .btn-secondary { background:#17251e; color:var(--green-800); }
+  body.dark .icon-btn { color:var(--green-800); }
+  @media (max-width: 900px) { .content-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .nav-links { gap:14px; } }
+  @media (max-width: 768px) { .content-grid { grid-template-columns:1fr; } .nav-links { display:flex; overflow-x:auto; max-width:55vw; gap:14px; } .nav-links a { white-space:nowrap; font-size:12px; } .header-inner { padding:0 14px; } .brand { margin-right:12px; } .live-badge { display:none; } .header-right { gap:10px; } .guide-dialog { padding:22px; } }
+
+
+
+.page-intro { padding: 52px 0 34px; }
+.page-intro .kicker { font-size:12px; font-weight:700; letter-spacing:1.4px; text-transform:uppercase; color:var(--green-500); margin-bottom:10px; }
+.page-intro h1 { font-size:clamp(32px,5vw,46px); line-height:1.12; letter-spacing:-1px; margin-bottom:16px; color:var(--ink); }
+.page-intro p { max-width:760px; font-size:16px; line-height:1.75; color:var(--ink-3); }
+.page-main { max-width:1280px; margin:0 auto; padding:36px 24px 84px; min-height:62vh; }
+.breadcrumb { color:var(--ink-muted); font-size:12px; margin-bottom:18px; }
+.breadcrumb a { color:var(--green-700); font-weight:600; }
+.article-body { max-width:820px; margin:0 auto; }
+.article-body h2 { font-size:23px; margin:30px 0 10px; color:var(--ink); }
+.article-body p, .article-body li { font-size:15px; line-height:1.8; color:var(--ink-3); margin-bottom:14px; }
+.article-body ul { padding-left:22px; }
+.article-meta { color:var(--ink-muted); font-size:12px; margin:12px 0 28px; }
+.card-link { display:inline-flex; margin-top:8px; color:var(--green-700); font-size:13px; font-weight:700; }
+.card-link:hover { text-decoration:underline; }
+.site-footer-note { max-width:1280px; margin:28px auto 0; padding-top:20px; border-top:1px solid var(--border-green); color:var(--ink-muted); font-size:12px; }
+.site-footer-note a { color:var(--green-700); font-weight:600; }
+.nav-links a[aria-current="page"] { color:var(--green-600); font-weight:700; }
+@media(max-width:768px){.page-main{padding:26px 16px 60px}.page-intro{padding:36px 0 24px}.page-intro h1{font-size:32px}.header-inner{gap:8px}.nav-links{max-width:58vw;}}
+
+
+/* SINGLE-FILE PAGE SWITCHING */
+.site-view { display: none; }
+.site-view.active { display: block; }
+.nav-links a[aria-current="page"] { color: var(--green-600); font-weight: 700; }
+/* Make the one-file navigation feel like normal page navigation. */
+html { scroll-behavior: smooth; }
+
+/* Section imagery added to Blog, Success Stories, References and Tools */
+.section-visual {
+  width: 100%;
+  margin: 24px 0 30px;
+  overflow: hidden;
+  border-radius: 16px;
+  background: var(--green-50, #f4faf6);
+  border: 1px solid var(--border, #e5e5e5);
+}
+.section-visual img {
+  display: block;
+  width: 100%;
+  height: clamp(190px, 28vw, 340px);
+  object-fit: cover;
+}
+.section-visual figcaption {
+  padding: 9px 14px;
+  color: var(--ink-muted, #5c7272);
+  font-size: 12px;
+}
+@media (max-width: 640px) {
+  .section-visual { margin: 18px 0 24px; border-radius: 12px; }
+  .section-visual img { height: 190px; }
+}
+</style>
+</head>
+<body>
+<header class="header"><div class="header-inner"><a aria-label="Shopify.dev program home" class="brand" href="#view=home"><div class="brand-name">shopify <span>.dev</span></div><div class="live-badge"><span class="live-dot"></span> Program Active</div></a><nav aria-label="Main navigation" class="nav-links"><a href="#view=blog">Blog</a><a href="#view=success-stories">Success Stories</a><a href="#view=references">References</a><a href="#view=tools">Tools</a></nav><div class="header-right"><button aria-label="Switch to dark mode" class="icon-btn theme-toggle" id="themeToggle" title="Switch theme" type="button"><svg fill="none" height="18" id="themeIcon" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="18"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></button><a class="text-link" href="#view=home&amp;scroll=apply">Apply</a></div></div></header>
+<!--
+  EDITING GUIDE:
+  Each page is kept in its own clearly marked section below.
+  To edit a page, search for its marker, for example:
+  EDITABLE PAGE: HOME, EDITABLE PAGE: BLOG, EDITABLE PAGE: TOOLS.
+  Shared design styles are in the <style> block above.
+  Shared navigation and theme behaviour are in the <script> block below.
+-->
+<!-- EDITABLE PAGE: HOME -->
+<!-- EDITABLE PAGE: BLOG -->
+<!-- EDITABLE PAGE: SUCCESS-STORIES -->
+<!-- EDITABLE PAGE: REFERENCES -->
+<!-- EDITABLE PAGE: TOOLS -->
+<!-- EDITABLE PAGE: PROGRAM-GUIDE -->
+<!-- EDITABLE PAGE: HOW-WE-WORK -->
+<!-- EDITABLE PAGE: ARTICLE-STOREFRONT -->
+<!-- EDITABLE PAGE: ARTICLE-RETENTION -->
+<!-- EDITABLE PAGE: ARTICLE-MEASUREMENT -->
+<section class="site-view active" data-view="home" id="view-home"><main class="main"><section class="hero">
+<div class="hero-content">
+<h1>Shopify.dev Program for Shopify Store Owners</h1>
+<p>A guided growth experience for Shopify store owners who want to make smarter decisions, improve their storefront, and get more from the tools available to them. Work with a partner and developer team to identify opportunities, plan improvements, and put practical changes into action.</p>
+<div class="hero-actions">
+<button class="btn-primary" onclick="document.getElementById('apply').scrollIntoView({behavior:'smooth'})">Apply Now →</button>
+<a class="btn-secondary" href="#view=program-guide">View Program Guide</a>
+</div>
+</div>
+<div class="hero-visual">
+<svg fill="none" viewbox="0 0 520 380" xmlns="http://www.w3.org/2000/svg">
+<path d="M 20 200 L 140 200" stroke="#c9e8da" stroke-dasharray="4 4" stroke-width="2"></path>
+<path d="M 380 200 L 440 200" stroke="#c9e8da" stroke-dasharray="4 4" stroke-width="2"></path>
+<path d="M 440 200 L 440 120" stroke="#c9e8da" stroke-dasharray="4 4" stroke-width="2"></path>
+<path d="M 140 320 L 280 320" stroke="#c9e8da" stroke-dasharray="4 4" stroke-width="2"></path>
+<path d="M 280 320 L 280 280" stroke="#c9e8da" stroke-dasharray="4 4" stroke-width="2"></path>
+<rect fill="#ffffff" height="240" rx="12" stroke="#008060" stroke-width="2" width="320" x="100" y="40"></rect>
+<rect fill="#e6f4ec" height="30" rx="12" width="320" x="100" y="40"></rect>
+<circle cx="120" cy="55" fill="#c9e8da" r="4"></circle><circle cx="134" cy="55" fill="#c9e8da" r="4"></circle><circle cx="148" cy="55" fill="#c9e8da" r="4"></circle>
+<rect fill="#008060" height="12" rx="6" width="120" x="120" y="90"></rect>
+<rect fill="#e6f4ec" height="8" rx="4" width="200" x="120" y="114"></rect>
+<rect fill="#e6f4ec" height="8" rx="4" width="160" x="120" y="130"></rect>
+<rect fill="#e6f4ec" height="8" rx="4" width="180" x="120" y="146"></rect>
+<rect fill="#008060" height="24" rx="6" width="80" x="120" y="220"></rect>
+<rect fill="#e6f4ec" height="24" rx="6" width="80" x="210" y="220"></rect>
+<path d="M 135 50 L 145 46 L 155 50 L 158 64 L 132 64 Z" fill="#5CD65C" stroke="#000000" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M 140 50 C 140 44, 150 44, 150 50" fill="none" stroke="#000000" stroke-linecap="round" stroke-width="2"></path>
+<path d="M 145 52 C 149 52, 150 56, 145 58 C 141 60, 142 64, 146 64" fill="none" stroke="#000000" stroke-linecap="round" stroke-width="2"></path>
+<rect fill="#ffffff" height="180" rx="12" stroke="#008060" stroke-width="2" width="100" x="360" y="110"></rect>
+<rect fill="#e6f4ec" height="24" rx="12" width="100" x="360" y="110"></rect>
+<rect fill="#008060" height="6" rx="3" width="40" x="390" y="116"></rect>
+<rect fill="#008060" height="6" rx="3" width="70" x="375" y="150"></rect>
+<rect fill="#c9e8da" height="4" rx="2" width="50" x="375" y="164"></rect>
+<rect fill="#c9e8da" height="4" rx="2" width="60" x="375" y="176"></rect>
+<rect fill="#c9e8da" height="4" rx="2" width="40" x="375" y="188"></rect>
+<rect fill="#f4faf6" height="30" rx="6" stroke="#c9e8da" stroke-width="1" width="70" x="375" y="215"></rect>
+<rect fill="#f4faf6" height="30" rx="6" stroke="#c9e8da" stroke-width="1" width="70" x="375" y="255"></rect>
+<rect fill="#2c3e50" height="10" width="10" x="110" y="300"></rect><rect fill="#3498db" height="14" width="10" x="110" y="310"></rect><rect fill="#2c3e50" height="8" width="4" x="108" y="324"></rect><rect fill="#2c3e50" height="8" width="4" x="118" y="324"></rect>
+<rect fill="#f1c40f" height="8" width="8" x="130" y="302"></rect><rect fill="#e74c3c" height="12" width="8" x="130" y="310"></rect><rect fill="#2c3e50" height="8" width="4" x="128" y="322"></rect><rect fill="#2c3e50" height="8" width="4" x="136" y="322"></rect>
+</svg>
+</div>
+</section><section id="benefits">
+<div class="section-header">
+<div class="kicker">A practical growth process</div>
+<h2>Support focused on the parts of your store that matter</h2>
+<p>Explore the areas our partner and developer team can help you review. The right priorities depend on your store, goals, resources, and current performance.</p>
+</div>
+<div class="benefits-grid">
+<div class="benefit-card"><div class="benefit-icon"><svg viewbox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg></div><div class="benefit-content"><h3>1. Build a stronger path to first sales</h3><p>Review your offer, product pages, checkout journey, and acquisition channels to identify practical steps toward your first consistent orders.</p><span class="benefit-tag">Core Benefit</span></div></div>
+<div class="benefit-card"><div class="benefit-icon"><svg viewbox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg></div><div class="benefit-content"><h3>2. Improve product discovery</h3><p>Strengthen product titles, collection structure, on-page content, and search visibility so relevant shoppers can understand and find your products.</p><span class="benefit-tag">Visibility</span></div></div>
+<div class="benefit-card"><div class="benefit-icon"><svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg></div><div class="benefit-content"><h3>3. Explore relevant platform opportunities</h3><p>Understand the tools, features, integrations, and third-party services that may fit your business. Availability and eligibility depend on each provider and your circumstances.</p><span class="benefit-tag">Eligibility</span></div></div>
+<div class="benefit-card"><div class="benefit-icon"><svg viewbox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div><div class="benefit-content"><h3>4. Review store quality and policy readiness</h3><p>Review storefront information, policies, product details, and customer-facing information to identify gaps that may create trust or compliance concerns. This is not a guarantee against enforcement action.</p><span class="benefit-tag">Protection</span></div></div>
+<div class="benefit-card"><div class="benefit-icon"><svg viewbox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-6"></path></svg></div><div class="benefit-content"><h3>5. Improve conversion opportunities</h3><p>Assess product presentation, pricing communication, merchandising, and checkout friction to find opportunities to improve the buying experience.</p><span class="benefit-tag">Profit</span></div></div>
+<div class="benefit-card"><div class="benefit-icon"><svg viewbox="0 0 24 24"><path d="M3 11l18-5v12L3 14v-3z"></path><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"></path></svg></div><div class="benefit-content"><h3>6. Plan campaigns and promotions</h3><p>Plan seasonal offers, campaign landing pages, email promotions, and paid traffic destinations. No promotional placement is guaranteed.</p><span class="benefit-tag">Promotions</span></div></div>
+<div class="benefit-card"><div class="benefit-icon"><svg viewbox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg></div><div class="benefit-content"><h3>7. Create useful marketing resources</h3><p>Develop practical campaign assets, content ideas, email flows, and creative direction aligned with your products and customers.</p><span class="benefit-tag">Resources</span></div></div>
+<div class="benefit-card"><div class="benefit-icon"><svg viewbox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg></div><div class="benefit-content"><h3>8. Keep up with useful platform updates</h3><p>Understand relevant ecommerce changes, platform features, and operational considerations, then decide which ones matter to your store.</p><span class="benefit-tag">Insider Updates</span></div></div>
+<div class="benefit-card"><div class="benefit-icon"><svg viewbox="0 0 24 24"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg></div><div class="benefit-content"><h3>9. Get development guidance</h3><p>Work with a developer on agreed tasks such as theme adjustments, storefront improvements, troubleshooting, and suitable custom functionality.</p><span class="benefit-tag">Developer Access</span></div></div>
+<div class="benefit-card"><div class="benefit-icon"><svg viewbox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" x2="7.01" y1="7" y2="7"></line></svg></div><div class="benefit-content"><h3>10. Choose tools with a clear purpose</h3><p>Compare relevant tools and apps based on the problem they solve, their cost, compatibility, and likely value to your business.</p><span class="benefit-tag">Savings</span></div></div>
+</div>
+</section><div id="formWrapper"><section class="apply-section" id="apply">
+<div class="section-header" style="margin-bottom:0;">
+<div class="kicker">Application</div>
+<h2>Apply for the Shopify.dev Program</h2>
+<p>Fill in the details below to submit your store for review. Once submitted, your application is checked against Shopify's records and you'll hear back within 48 hours.</p>
+</div>
+<form action='/' class='apply-form' data-netlify='true' id='applicationForm' method='POST' name='program-application'>
+<input name="form-name" type="hidden" value="program-application"/>
+<p hidden=""><label>Leave this field empty: <input name="bot-field"/></label></p>
+<div class="field"><label for="store-name">Store Name</label><input id="store-name" name="store_name" placeholder="e.g. Sage &amp; Stone" required="" type="text"/></div>
+<div class="field"><label for="store-email">Store Email</label><input id="store-email" name="store_email" placeholder="e.g. hello@yourstore.com" required="" type="email"/></div>
+<div class="field full"><label for="store-url">Store Link / URL</label><input id="store-url" name="store_url" placeholder="e.g. https://yourstore.myshopify.com" required="" type="url"/></div>
+<div class="field"><label for="partner-name">Partner Name</label><input id="partner-name" name="partner_name" placeholder="e.g. Shopify.dev Partner" required="" type="text"/></div>
+<div class="field"><label for="partner-id">Partner ID No.</label><input id="partner-id" name="partner_id" placeholder="e.g. SHP-000-0000" required="" type="text"/></div>
+<div class="form-actions field full">
+<button class="btn-submit" id="submitBtn" type="submit">Submit Application →</button>
+</div>
+</form>
+<p hidden="" id="applicationSuccess" role="status" style="margin-top:18px;padding:14px 16px;border:1px solid var(--green-200);border-radius:10px;background:var(--green-100);color:var(--green-800);font-weight:600;">Thank you. Your application has been submitted successfully. Our team will review your details and get in touch.</p>
+<div class="form-trust">
+<span><span class="tick">✓</span> Encrypted submission</span>
+<span><span class="tick">✓</span> SOC 2 Type II</span>
+<span><span class="tick">✓</span> Reviewed within 48 hours</span>
+<span><span class="tick">✓</span> Your data is never sold</span>
+</div>
+</section></div></main></section><section class="site-view" data-view="blog" id="view-blog"><main class="page-main"><div class="page-intro"><div class="kicker">BLOG</div><h1>Ideas to help your store grow</h1><p>Practical articles on store experience, customer acquisition, retention, and the tools that support modern commerce.</p></div><figure class="section-visual"><img alt="A customer completing an online purchase at a checkout counter" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&amp;fit=crop&amp;w=1600&amp;q=85"/><figcaption>Blog and ecommerce learning</figcaption></figure><div class="content-grid"><article class="content-card"><span class="content-label">Store experience</span><h3>Small storefront improvements that can make buying easier</h3><p>Explore product page clarity, navigation, mobile usability, trust information, and checkout friction. A better buying journey starts with removing uncertainty.</p><a class="card-link" href="#view=article-storefront">Read article →</a></article><article class="content-card"><span class="content-label">Customer retention</span><h3>Why the customer journey should continue after checkout</h3><p>Order updates, useful post-purchase communication, relevant recommendations, and thoughtful win-back campaigns can help build repeat customer relationships.</p><a class="card-link" href="#view=article-retention">Read article →</a></article><article class="content-card"><span class="content-label">Growth strategy</span><h3>Measure what happens between the click and the purchase</h3><p>Traffic alone cannot explain store performance. Review acquisition sources, product engagement, conversion, average order value, and returning customer behaviour.</p><a class="card-link" href="#view=article-measurement">Read article →</a></article></div></main></section><section class="site-view" data-view="success-stories" id="view-success-stories"><main class="page-main"><div class="breadcrumb"><a href="#view=home">Home</a> / What merchants have achieved with Shopify</div><section class="content-section">
+<div class="section-header">
+<div class="kicker">Success stories</div>
+<h2>What merchants have achieved with Shopify</h2>
+<p>Published merchant examples from Shopify's case-study library. These are independent merchant stories, not results produced by our team or guaranteed outcomes for other stores.</p>
+</div><figure class="section-visual"><img alt="An ecommerce performance dashboard displayed on a laptop" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&amp;fit=crop&amp;w=1600&amp;q=85"/><figcaption>Merchant growth and performance</figcaption></figure>
+<div class="content-grid">
+<article class="content-card"><span class="content-label">Fashion and apparel</span><h3>Aje improved its conversion rate by 135%</h3><p>The Australian fashion brand used Shopify Plus to create a stronger digital experience that better reflected its physical retail presence.</p><a href="https://www.shopify.com/ca/case-studies/aje" rel="noopener noreferrer" target="_blank">Read the published case study ↗</a></article>
+<article class="content-card"><span class="content-label">Health and beauty</span><h3>Dermalogica improved conversion and reduced maintenance effort</h3><p>After switching to the Horizon theme, Dermalogica reported a 9% lift in store conversion, annual technology savings, and a 40% reduction in developer maintenance time.</p><a href="https://www.shopify.com/za/case-studies/dermalogica-horizon-theme" rel="noopener noreferrer" target="_blank">Read the published case study ↗</a></article>
+<article class="content-card"><span class="content-label">Home and lifestyle</span><h3>Trévi unified commerce operations</h3><p>Shopify's merchant story highlights revenue growth after bringing ecommerce, stores, and legacy systems together on one platform.</p><a href="https://www.shopify.com/ca/case-studies/trevi" rel="noopener noreferrer" target="_blank">Read the published case study ↗</a></article>
+</div>
+<p class="content-disclaimer">Case-study results are reported by the respective businesses and Shopify. Results vary by business, market, execution, and other factors.</p>
+</section></main></section><section class="site-view" data-view="references" id="view-references"><main class="page-main"><div class="breadcrumb"><a href="#view=home">Home</a> / Project references and engagement examples</div><section class="content-section">
+<div class="section-header">
+<div class="kicker">Project references</div>
+<h2>How a partner-led engagement can help</h2>
+<p>Examples of the kinds of store challenges our partner and developer team can assess and work on. These describe service scenarios, not named client testimonials or independently verified client results.</p>
+</div><figure class="section-visual"><img alt="A team reviewing business and project work together" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&amp;fit=crop&amp;w=1600&amp;q=85"/><figcaption>Store improvement and collaboration</figcaption></figure>
+<div class="content-grid">
+<article class="content-card"><span class="content-label">Example engagement · Product pages</span><h3>When visitors view products but hesitate to buy</h3><p><strong>Challenge:</strong> Product information may be incomplete, benefits unclear, or key purchase details hard to find.<br/><strong>Our approach:</strong> Review product structure, imagery, descriptions, variant selection, delivery information, and trust elements, then prioritize improvements with the store owner.</p></article>
+<article class="content-card"><span class="content-label">Example engagement · Store performance</span><h3>When a storefront feels slow or difficult to use</h3><p><strong>Challenge:</strong> Heavy assets, unnecessary scripts, or confusing layouts can affect the shopping experience.<br/><strong>Our approach:</strong> Inspect the theme and page experience, identify likely sources of friction, and work with the developer on appropriate technical improvements.</p></article>
+<article class="content-card"><span class="content-label">Example engagement · Customer retention</span><h3>When a store relies too heavily on new traffic</h3><p><strong>Challenge:</strong> Past customers may not receive relevant follow-up after their first purchase.<br/><strong>Our approach:</strong> Review customer segments and consent settings, then plan useful post-purchase, replenishment, and win-back communication where appropriate.</p></article>
+</div>
+</section></main></section><section class="site-view" data-view="tools" id="view-tools"><main class="page-main"><div class="breadcrumb"><a href="#view=home">Home</a> / Tools that solve real store problems</div><section class="content-section">
+<div class="section-header">
+<div class="kicker">Tools and resources</div>
+<h2>Choose tools that solve real store problems</h2>
+<p>A tool is only useful when it supports a clear business goal. Here are examples of Shopify features and services worth exploring with your partner or developer.</p>
+</div><figure class="section-visual"><img alt="Digital tools and technology workspace" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&amp;fit=crop&amp;w=1600&amp;q=85"/><figcaption>Tools for ecommerce operations</figcaption></figure>
+<div class="content-grid tools-grid">
+<article class="content-card"><span class="content-label">Automation</span><h3>Shopify Flow</h3><p>Build workflows using triggers, conditions, and actions to automate repeatable store tasks and connect supported apps.</p><a href="https://help.shopify.com/en/manual/apps/apps-by-shopify/flow" rel="noopener noreferrer" target="_blank">Learn about Shopify Flow ↗</a></article>
+<article class="content-card"><span class="content-label">Email and SMS</span><h3>Shopify Messaging</h3><p>Create marketing campaigns and automations for subscribed customers, including welcome and other lifecycle messages.</p><a href="https://help.shopify.com/en/manual/promoting-marketing/create-marketing/automation-tools" rel="noopener noreferrer" target="_blank">Explore messaging tools ↗</a></article>
+<article class="content-card"><span class="content-label">Analytics</span><h3>Shopify Analytics</h3><p>Review sales, customer, product, and marketing reports to understand performance and make more informed decisions.</p><a href="https://www.shopify.com/analytics" rel="noopener noreferrer" target="_blank">Explore analytics ↗</a></article>
+<article class="content-card"><span class="content-label">Lead capture</span><h3>Shopify Forms</h3><p>Create forms to collect customer information and grow a permission-based marketing list.</p><a href="https://help.shopify.com/en/manual/promoting-marketing/create-marketing/automation-tools" rel="noopener noreferrer" target="_blank">Explore Forms and marketing tools ↗</a></article>
+<article class="content-card"><span class="content-label">Product discovery</span><h3>Shopify Search &amp; Discovery</h3><p>Help shoppers find relevant products with search, filters, recommendations, and merchandising controls.</p><a href="https://apps.shopify.com/search-and-discovery" rel="noopener noreferrer" target="_blank">View the app ↗</a></article>
+<article class="content-card"><span class="content-label">Customer support</span><h3>Shopify Inbox</h3><p>Manage customer conversations and provide timely assistance through your online store's chat experience.</p><a href="https://apps.shopify.com/inbox" rel="noopener noreferrer" target="_blank">View Shopify Inbox ↗</a></article>
+</div>
+</section></main></section><section class="site-view" data-view="program-guide" id="view-program-guide"><main class="page-main"><div class="article-body"><div class="page-intro"><div class="kicker">Program guide</div><h1>A guided path from discovery to improvement</h1><p>The program is designed to help Shopify store owners understand their growth opportunities and make informed improvements with support from a partner and developer team.</p></div><ol class="guide-steps"><li><strong>1. Invitation and introduction</strong><p>A store owner is introduced to the program through a participating partner. The first conversation establishes the store's goals, current challenges, and the kind of support being considered.</p></li><li><strong>2. Store discovery</strong><p>The partner reviews the storefront and business priorities with the owner. Together, they identify opportunities across product presentation, customer experience, acquisition, retention, and store operations.</p></li><li><strong>3. Tools and growth planning</strong><p>The partner helps the owner understand relevant Shopify features and compatible third-party tools. Recommendations are based on the store's needs, budget, plan, and technical setup.</p></li><li><strong>4. Partner and developer support</strong><p>Where implementation is needed, the partner and developer agree on a scope of work, responsibilities, timeline, and priorities with the store owner before changes are made.</p></li><li><strong>5. Implementation and review</strong><p>Approved improvements are implemented and reviewed. Progress can be assessed using relevant indicators such as conversion rate, average order value, customer retention, site performance, and revenue.</p></li></ol><p class="guide-note">Participation does not guarantee sales, funding, platform approval, promotional placement, or a particular business outcome. Tool availability and eligibility may vary by plan, location, and provider.</p><a class="btn-primary" href="#view=home&amp;scroll=apply">Apply Now →</a></div></main></section><section class="site-view" data-view="how-we-work" id="view-how-we-work"><main class="page-main"><div class="page-intro"><div class="kicker">How we work</div><h1>Clear priorities, practical execution</h1><p>Every store is different. We begin by understanding the business, agree on the work that matters most, and make improvements in a clear sequence.</p></div><div class="content-grid"><article class="content-card"><span class="content-label">01 · Discover</span><h3>Understand the store</h3><p>We discuss business goals, customers, products, current performance, and the issues the owner wants to solve.</p></article><article class="content-card"><span class="content-label">02 · Prioritize</span><h3>Choose the right opportunities</h3><p>We review the storefront and customer journey, then identify improvements based on potential impact, effort, budget, and available resources.</p></article><article class="content-card"><span class="content-label">03 · Plan</span><h3>Agree on the scope</h3><p>The partner, developer, and store owner align on deliverables, responsibilities, timelines, and how progress will be assessed.</p></article><article class="content-card"><span class="content-label">04 · Implement</span><h3>Put approved changes into action</h3><p>Work may include storefront improvements, product page updates, technical fixes, analytics, automation, or customer retention initiatives.</p></article><article class="content-card"><span class="content-label">05 · Review</span><h3>Measure and learn</h3><p>We review relevant indicators such as conversion, average order value, retention, site performance, and revenue, then decide what to improve next.</p></article></div><p class="content-disclaimer">Specific services, timelines, and outcomes depend on the store's needs and the scope agreed with the owner.</p></main></section><section class="site-view" data-view="article-storefront" id="view-article-storefront"><main class="page-main"><div class="article-body"><div class="breadcrumb"><a href="#view=home">Blog</a> / Store experience</div><div class="page-intro"><div class="kicker">Store experience</div><h1>Small storefront improvements that can make buying easier</h1><p>A good storefront does more than look attractive. It helps a shopper understand what is being sold, why it may be right for them, and what to do next.</p><div class="article-meta">Shopify and ecommerce growth</div></div><h2>Start with the customer experience</h2><p>Start with the product page. Make the product name, price, key benefits, variants, delivery information, and returns guidance easy to find. Use clear images that show the product from useful angles and in context.</p><h2>Look for the next practical improvement</h2><p>Next, review navigation and collection structure. Shoppers should be able to move from a category to a relevant product without guessing where things are. Search and filters become especially important as a catalogue grows.</p><p>Finally, test the mobile experience. Check text size, image loading, sticky elements, cart interactions, and the number of steps required to complete a purchase. Small points of friction can add up.</p><h2>Make the work measurable</h2><p>A useful improvement process starts with observing real customer behaviour, identifying the biggest point of uncertainty, and testing one change at a time.</p><p><a class="card-link" href="#view=home">← Back to all articles</a></p></div></main></section><section class="site-view" data-view="article-retention" id="view-article-retention"><main class="page-main"><div class="article-body"><div class="breadcrumb"><a href="#view=home">Blog</a> / Customer retention</div><div class="page-intro"><div class="kicker">Customer retention</div><h1>Why the customer journey should continue after checkout</h1><p>The relationship with a customer should not end when the payment is complete. Clear order updates and helpful follow-up can make the experience feel more reliable and encourage customers to return.</p><div class="article-meta">Shopify and ecommerce growth</div></div><h2>Start with the customer experience</h2><p>Begin with the essentials: confirmation, fulfilment updates, delivery information, and a straightforward way to get help. These messages reduce uncertainty at a moment when customers are waiting for their order.</p><h2>Look for the next practical improvement</h2><p>After delivery, consider relevant product education, care instructions, complementary products, replenishment reminders, or feedback requests. Keep messages useful and respect marketing consent and customer preferences.</p><p>For customers who have not purchased again, a thoughtful win-back message may be appropriate. Segment by purchase history and timing instead of sending the same promotion to everyone.</p><h2>Make the work measurable</h2><p>Measure repeat purchase rate, revenue from returning customers, unsubscribe rates, and the performance of each communication. Retention works best when it improves the customer experience, not when it simply increases message volume.</p><p><a class="card-link" href="#view=home">← Back to all articles</a></p></div></main></section><section class="site-view" data-view="article-measurement" id="view-article-measurement"><main class="page-main"><div class="article-body"><div class="breadcrumb"><a href="#view=home">Blog</a> / Growth strategy</div><div class="page-intro"><div class="kicker">Growth strategy</div><h1>Measure what happens between the click and the purchase</h1><p>Traffic is only the beginning of the customer journey. To understand store performance, look at what visitors do after they arrive and where they decide to leave.</p><div class="article-meta">Shopify and ecommerce growth</div></div><h2>Start with the customer experience</h2><p>Start by reviewing acquisition sources. Compare visitors, engaged sessions, product views, add-to-cart activity, checkout starts, and purchases by channel. A channel that brings many visitors may not bring the right buying intent.</p><h2>Look for the next practical improvement</h2><p>Then look at product-level performance. Identify products with strong views but weak add-to-cart rates, and products that convert well but receive little traffic. These patterns point to different opportunities.</p><p>Track conversion rate alongside average order value, returning customer rate, refund rate, and contribution margin where the data is available. Avoid making decisions from one metric in isolation.</p><h2>Make the work measurable</h2><p>Create a simple review cadence, record what changed, and compare results over a suitable period. The goal is to turn reporting into better decisions, not just collect dashboards.</p><p><a class="card-link" href="#view=home">← Back to all articles</a></p></div></main></section>
+<footer class="footer"><div class="footer-inner"><div class="footer-col"><h4>Explore</h4><ul><li><a href="#view=blog">Blog</a></li><li><a href="#view=success-stories">Success stories</a></li><li><a href="#view=references">Project references</a></li></ul></div><div class="footer-col"><h4>Resources</h4><ul><li><a href="#view=tools">Tools</a></li><li><a href="#view=how-we-work">Growth support</a></li><li><a href="#view=home&amp;scroll=apply">Apply to the program</a></li></ul></div><div class="footer-col"><h4>Program</h4><ul><li><a href="#view=program-guide">Program guide</a></li><li><a href="#view=how-we-work">How we work</a></li><li><a href="#view=tools">Tools directory</a></li></ul></div><div class="footer-col"><h4>Important information</h4><ul><li><a href="#view=home&amp;scroll=apply">Application details</a></li><li><a href="#view=references">Engagement examples</a></li><li><a href="#view=success-stories">Published merchant stories</a></li></ul></div></div><div class="site-footer-note">© 2026 Shopify Store Growth Program. Shopify is a trademark of Shopify Inc. This program is independently operated. <a href="https://www.shopify.com/partners" rel="noopener noreferrer" target="_blank">Shopify Partners Program</a>.</div></footer>
+<script>
+
+document.addEventListener('DOMContentLoaded', function () {
+  const toggle = document.getElementById('themeToggle');
+  const icon = document.getElementById('themeIcon');
+  function applyTheme(dark, save=true) {
+    document.body.classList.toggle('dark', dark);
+    if (toggle) {
+      toggle.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+      toggle.title = dark ? 'Switch to light mode' : 'Switch to dark mode';
+    }
+    if (icon) {
+      icon.innerHTML = dark
+        ? '<circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l-1.42-1.42m11.3-11.3 1.42-1.42"></path>'
+        : '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>';
+    }
+    if (save) { try { localStorage.setItem('shopify-program-theme', dark ? 'dark' : 'light'); } catch(e) {} }
+  }
+  let saved = null;
+  try { saved = localStorage.getItem('shopify-program-theme'); } catch(e) {}
+  applyTheme(saved === 'dark', false);
+  if (toggle) toggle.addEventListener('click', () => applyTheme(!document.body.classList.contains('dark')));
+
+  function showView(view, scrollTarget) {
+    const valid = document.getElementById('view-' + view) ? view : 'home';
+    document.querySelectorAll('.site-view').forEach(section => {
+      section.classList.toggle('active', section.dataset.view === valid);
+    });
+    document.querySelectorAll('.nav-links a').forEach(a => {
+      a.removeAttribute('aria-current');
+      if (a.getAttribute('href') === '#view=' + valid) a.setAttribute('aria-current', 'page');
+    });
+    document.title = (document.querySelector('#view-' + valid + ' h1, #view-' + valid + ' h2')?.textContent || 'Shopify Store Growth Program').trim() + ' | Shopify Store Growth';
+    window.scrollTo({top: 0, behavior: 'instant'});
+    if (scrollTarget) {
+      requestAnimationFrame(() => {
+        const target = document.getElementById(scrollTarget);
+        if (target) target.scrollIntoView({behavior: 'smooth', block: 'start'});
+      });
+    }
+  }
+  function routeFromHash() {
+    const raw = location.hash.replace(/^#/, '');
+    const params = new URLSearchParams(raw.replace(/&/g, '&'));
+    const view = params.get('view') || 'home';
+    showView(view, params.get('scroll'));
+  }
+  document.addEventListener('click', function(e) {
+    const link = e.target.closest('a[href^="#view="]');
+    if (!link) return;
+    e.preventDefault();
+    location.hash = link.getAttribute('href').slice(1);
+  });
+  window.addEventListener('hashchange', routeFromHash);
+  routeFromHash();
+
+  const form = document.getElementById('applicationForm');
+  if (form) {
+    form.addEventListener('submit', async function(event) {
+      event.preventDefault();
+      const button = form.querySelector('[type="submit"]');
+      if (button) { button.disabled = true; button.textContent = 'Submitting...'; }
+
+      try {
+        const formData = new FormData(form);
+        const encodedData = new URLSearchParams(formData).toString();
+        const response = await fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: encodedData
+        });
+
+        if (!response.ok) throw new Error('The application could not be submitted.');
+        window.location.assign('https://shopifydevcontact.netlify.app/');
+      } catch (error) {
+        if (button) {
+          button.disabled = false;
+          button.textContent = 'Submit Application →';
+        }
+        alert('Your application could not be submitted. Please check your connection and try again.');
+      }
+    });
+    form.querySelectorAll('input').forEach(input => input.addEventListener('input', () => input.classList.remove('error')));
+  }
+});
+
+</script>
+</body>
+</html>
+<script async src="/.netlify/scripts/hud?variant=public" data-nf-variant="public" data-netlify-site-id="eced52e5-33cc-44b9-a58e-b7251da2c2cc" data-app-host="app.netlify.com" data-account-tier="free"></script>
