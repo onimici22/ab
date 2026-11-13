@@ -372,7 +372,7 @@ html { scroll-behavior: smooth; }
 <h2>Apply for the Shopify.dev Program</h2>
 <p>Fill in the details below to submit your store for review. Once submitted, your application is checked against Shopify's records and you'll hear back within 48 hours.</p>
 </div>
-<form action='/' class='apply-form' data-netlify='true' id='applicationForm' method='POST' name='program-application'>
+<form action='/?application=submitted' class='apply-form' data-netlify='true' netlify-honeypot='bot-field' id='applicationForm' method='POST' name='program-application'>
 <input name="form-name" type="hidden" value="program-application"/>
 <p hidden=""><label>Leave this field empty: <input name="bot-field"/></label></p>
 <div class="field"><label for="store-name">Store Name</label><input id="store-name" name="store_name" placeholder="e.g. Sage &amp; Stone" required="" type="text"/></div>
@@ -487,32 +487,19 @@ document.addEventListener('DOMContentLoaded', function () {
   routeFromHash();
 
   const form = document.getElementById('applicationForm');
+
+  // Netlify handles the form's normal POST first. Only after Netlify
+  // returns the browser to this success URL do we send the visitor onward.
+  const submissionParams = new URLSearchParams(window.location.search);
+  if (submissionParams.get('application') === 'submitted') {
+    window.location.replace('https://shopifydevcontact.netlify.app/');
+    return;
+  }
+
   if (form) {
-    form.addEventListener('submit', async function(event) {
-      event.preventDefault();
-      const button = form.querySelector('[type="submit"]');
-      if (button) { button.disabled = true; button.textContent = 'Submitting...'; }
-
-      try {
-        const formData = new FormData(form);
-        const encodedData = new URLSearchParams(formData).toString();
-        const response = await fetch('/', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: encodedData
-        });
-
-        if (!response.ok) throw new Error('The application could not be submitted.');
-        window.location.assign('https://shopifydevcontact.netlify.app/');
-      } catch (error) {
-        if (button) {
-          button.disabled = false;
-          button.textContent = 'Submit Application →';
-        }
-        alert('Your application could not be submitted. Please check your connection and try again.');
-      }
-    });
-    form.querySelectorAll('input').forEach(input => input.addEventListener('input', () => input.classList.remove('error')));
+    form.querySelectorAll('input').forEach(input =>
+      input.addEventListener('input', () => input.classList.remove('error'))
+    );
   }
 });
 
